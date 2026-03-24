@@ -5,6 +5,9 @@ import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import spsolve
 
+# Constantes
+N_VALORES = [10, 20, 100, 200, 1000, 2000, 10000, 20000, 100000, 200000, 1000000] # Posibles tamaños del vector
+LIMITE_TIEMPO_S = 60  # si tarda más de 60 s, indicar y detener
 
 def construir_A_sparse(n):
     # Diagonales
@@ -21,14 +24,14 @@ def construir_A_sparse(n):
     )
 
     # Elementos cíclicos (esquinas)
+    A_sparse[0, n - 1] = -1.0
     A_sparse[n - 1, 0] = -1.0
 
     # Convertir a CSC para spsolve
     return A_sparse.tocsc()
 
 
-N_VALORES = [10, 20, 100, 200, 1000, 2000, 10000, 20000, 100000, 200000, 1000000]
-LIMITE_TIEMPO_S = 60  # si tarda más de 60 s, indicar y detener
+
 
 print(
     f"\n{'n':>10}  {'Tiempo (s)':>12}  {'Error máx':>14}  {'NNZ (no nulos)':>16}  {'Mem. sparse (KB)':>18}"
