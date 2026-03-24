@@ -2,6 +2,7 @@
 
 > **Grado en Ingeniería del Software**
 > U-tad — Curso 25/26
+> Pedro Pérez, Ignacio Cañizares y César Vidal.
 
 ---
 
